@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遴选备考时政简报 - 2026年5月上旬</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* 顶部标题 */
+        .header {
+            background: linear-gradient(135deg, #0047AB 0%, #1a6bc4 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 71, 171, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .header .date {
+            font-size: 1.2em;
+            opacity: 0.9;
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+        
+        /* 板块标题 */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin: 30px 0 20px;
+            padding: 12px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section-title .icon {
+            font-size: 1.5em;
+        }
+        
+        /* 卡片 */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #ccc;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        
+        /* 国家层面 - 蓝色 */
+        .card.national {
+            border-left-color: #3182ce;
+        }
+        
+        /* 湖南 - 红色 */
+        .card.hunan {
+            border-left-color: #e53e3e;
+        }
+        
+        /* 自然资源 - 绿色 */
+        .card.resource {
+            border-left-color: #38a169;
+        }
+        
+        /* 人民日报/求是 - 深蓝 */
+        .card.qishi {
+            border-left-color: #2b6cb0;
+        }
+        
+        /* 外省 - 橙色 */
+        .card.other {
+            border-left-color: #dd6b20;
+        }
+        
+        /* 金句 - 紫色 */
+        .card.quote {
+            border-left-color: #805ad5;
+            background: linear-gradient(135deg, #fff 0%, #faf5ff 100%);
+        }
+        
+        /* 卡片标题 */
+        .card-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .card-title .num {
+            background: #edf2f7;
+            color: #4a5568;
+            font-size: 0.85em;
+            padding: 2px 10px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+        
+        /* 要点 */
+        .point {
+            color: #4a5568;
+            margin-bottom: 10px;
+            padding-left: 15px;
+            border-left: 3px solid #e2e8f0;
+        }
+        
+        /* 遴选关联标签 */
+        .tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 0.85em;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-top: 12px;
+            border: none;
+        }
+        
+        /* 重点话题提示 */
+        .hot-topic {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            border: 2px solid #fc8181;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .hot-topic-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #c53030;
+            margin-bottom: 15px;
+        }
+        
+        .hot-topic-content {
+            color: #742a2a;
+        }
+        
+        /* 金句引用 */
+        .golden-quote {
+            font-style: italic;
+            color: #553c9a;
+            padding: 15px 20px;
+            background: #faf5ff;
+            border-radius: 8px;
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        .golden-quote::before {
+            content: """;
+            font-size: 3em;
+            color: #d6bcfa;
+            position: absolute;
+            left: 5px;
+            top: -10px;
+            font-family: serif;
+        }
+        
+        .quote-source {
+            color: #805ad5;
+            font-size: 0.9em;
+            margin-top: 10px;
+            text-align: right;
+        }
+        
+        /* 原文链接 */
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #3182ce;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 10px;
+            padding: 5px 12px;
+            background: #ebf8ff;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        
+        .source-link:hover {
+            background: #3182ce;
+            color: white;
+        }
+        
+        .source-link.no-link {
+            color: #a0aec0;
+            background: #f7fafc;
+            cursor: default;
+        }
+        
+        .source-link.no-link:hover {
+            background: #f7fafc;
+            color: #a0aec0;
+        }
+        
+        /* 分隔线 */
+        .divider {
+            border: none;
+            border-top: 2px dashed #e2e8f0;
+            margin: 30px 0;
+        }
+        
+        /* 温馨提示 */
+        .notice {
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            border: 1px solid #68d391;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            color: #22543d;
+        }
+        
+        .notice-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 参考文献来源 */
+        .reference {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .reference-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .reference-category {
+            margin-bottom: 20px;
+        }
+        
+        .reference-category-title {
+            font-weight: 700;
+            color: #2c5282;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .reference-item {
+            margin-bottom: 8px;
+            padding-left: 15px;
+        }
+        
+        .reference-item a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+        
+        .reference-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .reference-articles {
+            color: #4a5568;
+            font-size: 0.9em;
+            padding-left: 25px;
+            margin-top: 3px;
+        }
+        
+        /* 目录样式 */
+        .toc {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .toc-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #2d3748;
+        }
+        
+        .toc-section {
+            margin-bottom: 12px;
+        }
+        
+        .toc-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .toc-primary {
+            display: block;
+            padding: 8px 8px;
+            color: #2d3748;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid #edf2f7;
+            transition: color 0.2s;
+        }
+        
+        .toc-primary:hover {
+            color: #63b3ed;
+        }
+        
+        .toc-secondary {
+            display: block;
+            padding: 4px 8px 4px 30px;
+            color: #718096;
+            font-size: 0.9em;
+            text-decoration: none;
+            border-bottom: 1px solid #f7fafc;
+            transition: color 0.2s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .toc-secondary:hover {
+            color: #63b3ed;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.6em;
+            }
+            
+            .card {
+                padding: 15px 18px;
+            }
+            
+            .section-title {
+                font-size: 1.2em;
+            }
+        }
+        
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e0;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a0aec0;
+        }
+        
+        /* 锚点跳转支持 */
+        [id^="section"], [id^="card"] {
+            scroll-margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部标题 -->
+        <div class="header">
+            <h1>📰 时政简报</h1>
+            <div class="date">📅 2026年5月上旬</div>
+        </div>
+
+        <!-- 目录 -->
+        <div class="toc">
+            <div class="toc-title">📑 本期目录</div>
+            
+            <!-- 一、国家重要讲话 -->
+            <div class="toc-section">
+                <a href="#section1" class="toc-primary">一、国家重要讲话</a>
+                <a href="#card1-1" class="toc-secondary">1.1 习近平：在省部级主要领导干部学习贯彻党的二十届四中全会精神专题研讨班上的讲话</a>
+                <a href="#card1-2" class="toc-secondary">1.2 习近平：加强基础研究座谈会重要讲话</a>
+                <a href="#card1-3" class="toc-secondary">1.3 习近平：就服务业发展作出重要指示</a>
+                <a href="#card1-4" class="toc-secondary">1.4 习近平：给四所交通大学全体师生回信</a>
+            </div>
+            
+            <!-- 二、国家重要政策 -->
+            <div class="toc-section">
+                <a href="#section2" class="toc-primary">二、国家重要政策</a>
+                <a href="#card2-1" class="toc-secondary">2.1 国务院《关于推进服务业扩能提质的意见》</a>
+                <a href="#card2-2" class="toc-secondary">2.2 国务院办公厅《关于加快建设分级诊疗体系的若干措施》</a>
+                <a href="#card2-3" class="toc-secondary">2.3 国务院办公厅《关于健全药品价格形成机制的若干意见》</a>
+                <a href="#card2-4" class="toc-secondary">2.4 我国对53个非洲建交国全面实施零关税</a>
+            </div>
+            
+            <!-- 三、人民日报/求是杂志 -->
+            <div class="toc-section">
+                <a href="#section3" class="toc-primary">三、人民日报/求是杂志</a>
+                <a href="#card3-1" class="toc-secondary">3.1 人民日报社论：在新征程上团结奋斗不懈奋斗</a>
+                <a href="#card3-2" class="toc-secondary">3.2 人民日报评论员：坚定信心，进一步打牢科技强国建设根基</a>
+                <a href="#card3-3" class="toc-secondary">3.3 求是杂志：陈一新署名文章《提升护航高质量发展的国家安全能力》</a>
+                <a href="#card3-4" class="toc-secondary">3.4 求是杂志：郑栅洁署名文章《以高质量实施"十五五"规划推进中国式现代化建设》</a>
+                <a href="#card3-5" class="toc-secondary">3.5 求是杂志：杜飞轮署名文章《提高国民经济循环质量和效率》</a>
+            </div>
+            
+            <!-- 四、湖南省动态 -->
+            <div class="toc-section">
+                <a href="#section4" class="toc-primary">四、湖南省动态（含湖南日报理论评论）</a>
+                <a href="#card4-1" class="toc-secondary">4.1 湖南省委书记沈晓明部署安全生产工作</a>
+                <a href="#card4-2" class="toc-secondary">4.2 沈晓明主持召开省委常委会会议</a>
+                <a href="#card4-3" class="toc-secondary">4.3 湖南省政府办公厅发布场景创新三年行动方案</a>
+                <a href="#card4-4" class="toc-secondary">4.4 省自然资源厅：树立和践行正确政绩观专题学习</a>
+                <a href="#card4-5" class="toc-secondary">4.5 三湘时评丨充分激发抓改革、促开放的活力</a>
+                <a href="#card4-6" class="toc-secondary">4.6 三湘时评丨以美好青春谱写湘台交流融合新篇章</a>
+                <a href="#card4-7" class="toc-secondary">4.7 湘江评论丨"湘渝"有约：与君携手奔前程</a>
+                <a href="#card4-8" class="toc-secondary">4.8 三湘时评丨让更多的"蔡皋"脱颖而出</a>
+            </div>
+            
+            <!-- 五、自然资源专题 -->
+            <div class="toc-section">
+                <a href="#section5" class="toc-primary">五、自然资源专题 ⭐</a>
+                <a href="#card5-1" class="toc-secondary">5.1 自然资源部：新一轮找矿突破战略行动成果</a>
+                <a href="#card5-2" class="toc-secondary">5.2 自然资源部：2026年全国汛期地质灾害防治工作视频会议</a>
+                <a href="#card5-3" class="toc-secondary">5.3 自然资源部 国家林业和草原局：关于进一步做好自然资源要素保障的通知</a>
+                <a href="#card5-4" class="toc-secondary">5.4 湖南：出台文件推进城市更新</a>
+                <a href="#card5-5" class="toc-secondary">5.5 湖南：省自然资源厅八项重点任务助力"开局八好"</a>
+                <a href="#card5-6" class="toc-secondary">5.6 湖南：地质灾害防治成效</a>
+            </div>
+            
+            <!-- 六、外省亮点 -->
+            <div class="toc-section">
+                <a href="#section6" class="toc-primary">六、外省亮点</a>
+                <a href="#card6-1" class="toc-secondary">6.1 【浙江】推动经济高质量发展若干政策</a>
+                <a href="#card6-2" class="toc-secondary">6.2 【广东】"十五五"规划纲要正式发布</a>
+                <a href="#card6-3" class="toc-secondary">6.3 【广东】2026年全省卫生健康工作会议部署</a>
+                <a href="#card6-4" class="toc-secondary">6.4 【四川】加大人力资本投资促进经济社会持续健康发展</a>
+                <a href="#card6-5" class="toc-secondary">6.5 【四川】进一步促进服务业创新突破的实施意见</a>
+            </div>
+            
+            <!-- 七、本期金句积累 -->
+            <div class="toc-section">
+                <a href="#section7" class="toc-primary">七、本期金句积累</a>
+            </div>
+            
+            <!-- 八、本期重点话题提示 -->
+            <div class="toc-section">
+                <a href="#section8" class="toc-primary">八、本期重点话题提示</a>
+            </div>
+        </div>
+
+        <!-- 一、国家重要讲话 -->
+        <div class="section-title" id="section1">
+            <span class="icon">🇨🇳</span>
+            <span>一、国家重要讲话</span>
+        </div>
+
+        <div class="card national" id="card1-1">
+            <div class="card-title">
+                <span class="num">1.1</span>
+                <span>习近平：在省部级主要领导干部学习贯彻党的二十届四中全会精神专题研讨班上的讲话</span>
+            </div>
+            <div class="point">📌 <strong>来源：</strong>《求是》杂志2026年第9期发表</div>
+            <div class="point">• 深刻阐述制定和实施五年规划是"政治优势"，体现"四个有利于"：实现党的领导、集中力量办大事、前瞻性把握战略问题、保持事业连续性</div>
+            <div class="point">• 总结"五个坚持"宝贵经验：党中央集中统一领导、从实际出发、全国一盘棋、发扬民主、规划法定</div>
+            <div class="point">• 全面深刻准确领会"十五五"部署：全面（全局视野）、深刻（知其然更知所以然）、准确（精准把握政策界限）</div>
+            <div class="point">• 强调扎扎实实建设现代化产业体系，坚持智能化、绿色化、融合化方向</div>
+            <div class="point">• 提出着力提高党领导经济社会发展能力和水平：学习、政绩观、斗争精神、惩治腐败</div>
+            <div class="tag">🎯 遴选关联：二十届四中全会精神是遴选高频考点，"十五五"规划编制、治理现代化等题目可引用</div>
+            <a href="https://www.gov.cn/yaowen/liebiao/202605/content_7067654.htm" target="_blank" class="source-link">
+                🔗 原文链接（中国政府网）
+            </a>
+        </div>
+
+        <div class="card national" id="card1-2">
+            <div class="card-title">
+                <span class="num">1.2</span>
+                <span>习近平：加强基础研究座谈会重要讲话</span>
+            </div>
+            <div class="point">📌 <strong>时间：</strong>2026年4月30日　<strong>地点：</strong>上海</div>
+            <div class="point">• "基础研究是整个科学体系的源头，是所有技术问题的总机关"</div>
+            <div class="point">• 以更大力度、更实举措加强基础研究，提升我国原始创新能力</div>
+            <div class="point">• 进一步打牢科技强国建设根基</div>
+            <div class="point">• 强调优化基础研究系统布局、壮大人才队伍、深化国际交流合作</div>
+            <div class="tag">🎯 遴选关联：科技创新类题目常考，可作为"新质生产力""科技自立自强"题目的理论支撑</div>
+            <a href="https://www.gov.cn/yaowen/liebiao/202605/content_7067654.htm" target="_blank" class="source-link">
+                🔗 原文链接（中国政府网）
+            </a>
+        </div>
+
+        <div class="card national" id="card1-3">
+            <div class="card-title">
+                <span class="num">1.3</span>
+                <span>习近平：就服务业发展作出重要指示</span>
+            </div>
+            <div class="point">📌 <strong>时间：</strong>2026年4月8日</div>
+            <div class="point">• 突出<strong>需求牵引、改革攻坚、科技赋能、开放合作</strong>十六字原则</div>
+            <div class="point">• 深入实施服务业扩能提质行动，推进生产性服务业向专业化和价值链高端延伸</div>
+            <div class="point">• 促进生活性服务业高品质多样化便利化发展，培育更多"中国服务"品牌</div>
+            <div class="tag">🎯 遴选关联：服务业高质量发展是"十五五"重点，可用于作答产业升级、扩大内需等题目</div>
+            <a href="https://www.gov.cn/yaowen/liebiao/202604/content_7064164.htm" target="_blank" class="source-link">
+                🔗 原文链接（新华社）
+            </a>
+        </div>
+
+        <div class="card national" id="card1-4">
+            <div class="card-title">
+                <span class="num">1.4</span>
+                <span>习近平：给四所交通大学全体师生回信</span>
+            </div>
+            <div class="point">📌 <strong>背景：</strong>上海交大、西安交大、西南交大、北京交大共同迎来建校130周年（2026年4月7日）</div>
+            <div class="point">• 强调传承弘扬"西迁精神"</div>
+            <div class="point">• 聚焦国家重大战略需求，加强科技自主创新和人才自主培养</div>
+            <div class="point">• 在促进产学研深度融合上实现更多突破</div>
+            <div class="tag">🎯 遴选关联：西迁精神、人才强国、教育科技人才一体化发展等话题</div>
+            <a href="http://cpc.people.com.cn/n1/2026/0407/c64094-40696648.html" target="_blank" class="source-link">
+                🔗 原文链接（人民网）
+            </a>
+        </div>
+
+        <hr class="divider">
+
+        <!-- 二、国家重要政策 -->
+        <div class="section-title" id="section2">
+            <span class="icon">📋</span>
+            <span>二、国家重要政策</span>
+        </div>
+
+        <div class="card national" id="card2-1">
+            <div class="card-title">
+                <span class="num">2.1</span>
+                <span>国务院《关于推进服务业扩能提质的意见》</span>
+            </div>
+            <div class="point">📌 <strong>发布时间：</strong>2026年4月</div>
+            <div class="point">• <strong>发展目标：</strong>到2030年服务业总规模跃上100万亿元台阶（"十五五"期间新增20万亿元）</div>
+            <div class="point">• <strong>十大重点领域：</strong>生产性服务业6个（科技服务、现代物流、信息软件服务等）、生活性服务业4个（居民服务、养老托育等）</div>
+            <div class="point">• <strong>四化路径：</strong>数智化、标准化、融合化、国际化</div>
+            <div class="tag">🎯 遴选关联：扩内需、促消费的重要抓手，服务业是"十五五"重点产业</div>
+            <a href="https://www.gov.cn/zccfh/2026nzccfh/202604/wzsl/202604/content_7067346.htm" target="_blank" class="source-link">
+                🔗 原文链接（国务院政策例行吹风会）
+            </a>
+        </div>
+
+        <div class="card national" id="card2-2">
+            <div class="card-title">
+                <span class="num">2.2</span>
+                <span>国务院办公厅《关于加快建设分级诊疗体系的若干措施》</span>
+            </div>
+            <div class="point">📌 <strong>核心内容：</strong></div>
+            <div class="point">• 把握"强基、稳二、控三"的结构调整方向</div>
+            <div class="point">• 让三级医院回归疑难重症诊疗功能，二级医院和基层机构发挥承上启下作用</div>
+            <div class="point">• 推动优质医疗资源扩容下沉和区域均衡布局</div>
+            <div class="tag">🎯 遴选关联：医疗体制改革、分级诊疗是民生保障重点</div>
+            <a href="https://www.gov.cn/zhengce/zhengceku/202604/content_7064852.htm" target="_blank" class="source-link">
+                🔗 原文链接（国务院政策文件库）
+            </a>
+        </div>
+
+        <div class="card national" id="card2-3">
+            <div class="card-title">
+                <span class="num">2.3</span>
+                <span>国务院办公厅《关于健全药品价格形成机制的若干意见》</span>
+            </div>
+            <div class="point">📌 <strong>三大机制：</strong></div>
+            <div class="point">• <strong>全周期：</strong>新上市药品首发价格机制→医保支付标准引导→集采价格形成→挂网价格管理</div>
+            <div class="point">• <strong>全渠道：</strong>公立医疗机构零差率销售、医保定点药店协议管理、网上药店比价</div>
+            <div class="point">• <strong>全领域：</strong>创新药多元支付、短缺药保供稳价、麻醉药品政府指导价</div>
+            <div class="tag">🎯 遴选关联：医药体制改革、民生保障的重要举措</div>
+            <a href="https://www.gov.cn/zccfh/2026nzccfh/202604/wzsl/202604/content_7065713.htm" target="_blank" class="source-link">
+                🔗 原文链接（国务院政策例行吹风会）
+            </a>
+        </div>
+
+        <div class="card national" id="card2-4">
+            <div class="card-title">
+                <span class="num">2.4</span>
+                <span>我国对53个非洲建交国全面实施零关税（2026年5月1日起）</span>
+            </div>
+            <div class="point">📌 <strong>核心要点：</strong></div>
+            <div class="point">• 中国成为全球首个对所有非洲建交国和最不发达国家实现单方面、全覆盖零关税待遇的主要经济体</div>
+            <div class="point">• 涵盖20个非最不发达国家（阿尔及利亚、博茨瓦纳、南非、尼日利亚等）</div>
+            <div class="point">• 2025年中非贸易额达3480亿美元，创历史新高</div>
+            <div class="tag">🎯 遴选关联：体现高水平对外开放、"真实亲诚"对非政策理念</div>
+            <a href="https://www.gov.cn/yaowen/liebiao/202605/content_7067654.htm" target="_blank" class="source-link">
+                🔗 原文链接（中国政府网）
+            </a>
+        </div>
+
+        <hr class="divider">
+
+        <!-- 三、人民日报/求是杂志 -->
+        <div class="section-title" id="section3" style="background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);">
+            <span class="icon">📰</span>
+            <span>三、人民日报/求是杂志</span>
+        </div>
+
+        <div class="card qishi" id="card3-1">
+            <div class="card-title">
+                <span class="num">3.1</span>
+                <span>人民日报社论：在新征程上团结奋斗不懈奋斗——写在"五一"国际劳动节</span>
+            </div>
+            <div class="point">📌 <strong>发布时间：</strong>2026年5月1日</div>
+            <div class="point">• "十四五"圆满收官，经济实力、科技实力、综合国力跃上新台阶</div>
+            <div class="point">• 一季度国内生产总值同比增长5.0%，经济运行起步有力、开局良好</div>
+            <div class="point">• 习近平总书记强调："时代不同，使命任务发生变化，但艰苦奋斗、团结奋斗、不懈奋斗的精神永远不会变"</div>
+            <div class="point">• 推动人口红利加速向人才红利提升</div>
+            <div class="tag">🎯 遴选关联：劳动精神、奋斗精神是遴选常考主题</div>
+            <a href="https://www.gov.cn/yaowen/liebiao/202605/content_7067654.htm" target="_blank" class="source-link">
+                🔗 原文链接（人民日报/中国政府网）
+            </a>
+        </div>
+
+        <div class="card qishi" id="card3-2">
+            <div class="card-title">
+                <span class="num">3.2</span>
+                <span>人民日报评论员：坚定信心，进一步打牢科技强国建设根基</span>
+            </div>
+            <div class="point">📌 <strong>发布时间：</strong>2026年5月2日</div>
+            <div class="point">• 学习贯彻习近平总书记在加强基础研究座谈会上的重要讲话</div>
+            <div class="point">• 创新指数排名升至世界第9位，基础研究投入占研发投入比重首次突破7%</div>
+            <div class="point">• 量子科技、载人航天、探月探火等取得重大成果</div>
+            <div class="tag">🎯 遴选关联：科技强国建设、基础研究是遴选热点</div>
+            <a href="http://m.toutiao.com/group/7635194380424380968/" target="_blank" class="source-link">
+                🔗 原文链接（人民日报海外版）
+            </a>
+        </div>
+
+        <div class="card qishi" id="card3-3">
+            <div class="card-title">
+                <span class="num">3.3</span>
+                <span>求是杂志：陈一新署名文章《提升护航高质量发展的国家安全能力》</span>
+            </div>
+            <div class="point">📌 <strong>来源：</strong>《求是》2026年第8期（全民国家安全教育日）</div>
+            <div class="point">• 统筹发展和安全是一体之两翼、驱动之双轮</div>
+            <div class="point">• 安全是发展的前提，发展是安全的保障</div>
+            <div class="point">• 强化底线思维、内外统筹、协同联动</div>
+            <div class="tag">🎯 遴选关联：国家安全观、统筹发展和安全是重要考点</div>
+            <a href="http://www.chinapeace.gov.cn/chinapeace/c100007/2026-04/15/content_12834145.shtml" target="_blank" class="source-link">
+                🔗 原文链接（国家安全部）
+            </a>
+        </div>
+
+        <div class="card qishi" id="card3-4">
+            <div class="card-title">
+                <span class="num">3.4</span>
+                <span>求是杂志：郑栅洁署名文章《以高质量实施"十五五"规划推进中国式现代化建设》</span>
+            </div>
+            <div class="point">📌 <strong>来源：</strong>《求是》2026年第9期</div>
+            <div class="point">• 深刻阐述五年规划的"四个有利于"和"五个坚持"</div>
+            <div class="point">• "十五五"是承前启后的关键时期：夯实基础、全面发力</div>
+            <div class="point">• 20项主要指标（约束性8项、预期性12项）</div>
+            <div class="tag">🎯 遴选关联："十五五"规划解读的权威文献</div>
+            <a href="http://m.toutiao.com/group/7636575832458150440/" target="_blank" class="source-link">
+                🔗 原文链接（求是网）
+            </a>
+        </div>
+
+        <div class="card qishi" id="card3-5">
+            <div class="card-title">
+                <span class="num">3.5</span>
+                <span>求是杂志：杜飞轮署名文章《提高国民经济循环质量和效率》</span>
+            </div>
+            <div class="point">📌 <strong>来源：</strong>《求是》2026年第9期　<strong>作者：</strong>中国宏观经济研究院经济研究所所长</div>
+            <div class="point">• 解读习近平总书记关于经济循环的重要论述</div>
+            <div class="point">• 消费是经济循环的终点和最直接的牵引力</div>
+            <div class="point">• 内需对经济增长年均贡献率超过91%</div>
+            <div class="tag">🎯 遴选关联：扩内需、构建新发展格局是重要考点</div>
+            <a href="http://m.toutiao.com/group/7636594470267535872/" target="_blank" class="source-link">
+                🔗 原文链接（求是网）
+            </a>
+        </div>
+
+        <hr class="divider">
+
+        <!-- 四、湖南省动态 -->
+        <div class="section-title" id="section4">
+            <span class="icon">🏛️</span>
+            <span>四、湖南省动态（含湖南日报理论评论）</span>
+        </div>
+
+        <div class="card hunan" id="card4-1">
+            <div class="card-title">
+                <span class="num">4.1</span>
+                <span>湖南省委书记沈晓明部署安全生产工作</span>
+            </div>
+            <div class="point">📌 <strong>背景：</strong>2026年5月浏阳华盛烟花厂爆炸事故后召开全省安全生产工作视频会议</div>
+            <div class="point">• 把安全生产作为树立和践行正确政绩观学习教育的重要内容</div>
+            <div class="point">• 迅速在全省开展安全生产风险隐患大排查大整治</div>
+            <div class="point">• 健全风险分级管控和隐患排查治理双重预防机制</div>
+            <div class="tag">🎯 遴选关联：政绩观学习教育是当前重要政治任务，安全生产"党政同责、一岗双责"是经典考点</div>
+            <span class="source-link no-link">
+                🔗 原文链接（湖南省政府官网首页，无法获取具体链接）
+            </span>
+        </div>
+
+        <div class="card hunan" id="card4-2">
+            <div class="card-title">
+                <span class="num">4.2</span>
+                <span>沈晓明主持召开省委常委会会议（传达学习习近平总书记重要指示精神）</span>
+            </div>
+            <div class="point">📌 <strong>时间：</strong>2026年4月29日</div>
+            <div class="point">• 传达学习习近平总书记关于服务业发展、树立和践行正确政绩观学习教育的重要指示精神，研究我省贯彻意见</div>
+            <div class="point">• 听取习近平总书记对湖南工作重要指示批示精神贯彻落实常态化"回头看"等情况汇报</div>
+            <div class="point">• 推进"开局八好"行动，部署"五一"假期安全稳定工作</div>
+            <div class="point">• 会议强调：深入实施服务业扩能提质行动，培育更多"湖南服务"品牌；坚持"当下改"和"长久立"相结合，以正确政绩观引领和推动全省高质量发展</div>
+            <div class="tag">🎯 遴选关联：湖南省委重大部署是遴选备考重点，服务业发展和政绩观学习教育是当前热点</div>
+            <a href="https://www.hunantoday.cn/news/xhn/202604/32553735.html" target="_blank" class="source-link">
+                🔗 原文链接（湖南日报·新湖南客户端）
+            </a>
+        </div>
+
+        <div class="card hunan" id="card4-3">
+            <div class="card-title">
+                <span class="num">4.3</span>
+                <span>湖南省政府办公厅发布场景创新三年行动方案（2026—2028年）</span>
+            </div>
+            <div class="point">📌 <strong>目标：</strong>"一年见成效、两年树标杆、三年全提升"</div>
+            <div class="point">• 围绕先进制造、文化科技融合、现代农业、低空经济等<strong>14个重点领域</strong></div>
+            <div class="point">• 到2028年建成场景创新试验区不少于10个，每年落地综合性重大场景不少于10项</div>
+            <div class="point">• 为不少于1000家企业开展场景对接</div>
+            <div class="tag">🎯 遴选关联：场景创新是新质生产力落地的重要载体</div>
+            <a href="https://www.hunan.gov.cn/hnszf/hnyw/zwdt/202605/t20260503_33969265.html" target="_blank" class="source-link">
+                🔗 原文链接（湖南省人民政府官网）
+            </a>
+        </div>
+
+        <div class="card hunan" id="card4-4">
+            <div class="card-title">
+                <span class="num">4.4</span>
+                <span>省自然资源厅：树立和践行正确政绩观专题学习</span>
+            </div>
+            <div class="point">📌 <strong>时间：</strong>2026年4月21日-22日</div>
+            <div class="point">• 自然资源部法规司副司长作专题辅导</div>
+            <div class="point">• 强化法治思维，服务"经济大省挑大梁"</div>
+            <div class="point">• 以正确政绩观引领规划实施、保障要素供给、守牢安全底线</div>
+            <div class="tag">🎯 遴选关联：政绩观学习教育是当前重要内容</div>
+            <a href="http://zrzyt.hunan.gov.cn/zrzyt/xxgk/gzdt/zhxw_1/202604/t20260422_33962493.html" target="_blank" class="source-link">
+                🔗 原文链接（湖南省自然资源厅）
+            </a>
+        </div>
+
+        <!-- 湖南日报理论 -->
+
+        <div class="card hunan" id="card4-5">
+            <div class="card-title">
+                <span class="num">4.5</span>
+                <span>三湘时评丨充分激发抓改革、促开放的活力</span>
+            </div>
+            <div class="point">📌 <strong>刊载：</strong>湖南日报·湘江评论 2026年4月1日</div>
+            <div class="point">• 以改革破局，关键在于通过制度创新打通"堵点"；湖南自贸试验区挂牌五年来累计形成制度创新成果109项，其中全国首创51项</div>
+            <div class="point">• 以开放聚势，重点在于拓展平台和通道的空间；"十五五"规划纲要中湖南元素多达30余项</div>
+            <div class="point">• 用改革的"冲击钻"打通堵点、用开放的"快车道"跑出加速度，把"开门稳"的底气变成"全年进"的胜势</div>
+            <div class="tag">🎯 遴选关联：湖南改革开放评论是策论文写作的绝佳范本，框架"改革破局+开放聚势"可直接套用</div>
+            <a href="https://m.voc.com.cn/xhn/news/202604/31870025.html" target="_blank" class="source-link">
+                🔗 原文链接（湖南日报·新湖南客户端）
+            </a>
+        </div>
+
+        <div class="card hunan" id="card4-6">
+            <div class="card-title">
+                <span class="num">4.6</span>
+                <span>三湘时评丨以美好青春谱写湘台交流融合新篇章</span>
+            </div>
+            <div class="point">📌 <strong>刊载：</strong>湖南日报·湘江评论 2026年4月17日</div>
+            <div class="point">• 湖南将"全面建设年轻人友好省份"写入省政府工作报告，推出就业友好、创业友好、生活友好、成长友好"四个友好"行动</div>
+            <div class="point">• 两岸融合发展说到底还是要靠青年，湘台之间"四缘"（地缘、人缘、文缘、商缘）是历史赋予的深厚底色</div>
+            <div class="tag">🎯 遴选关联：两岸关系+青年人才话题，"四个友好"可作为对策题素材</div>
+            <a href="https://m.voc.com.cn/xhn/news/202604/32452435.html" target="_blank" class="source-link">
+                🔗 原文链接（湖南日报·新湖南客户端）
+            </a>
+        </div>
+
+        <div class="card hunan" id="card4-7">
+            <div class="card-title">
+                <span class="num">4.7</span>
+                <span>湘江评论丨"湘渝"有约：与君携手奔前程</span>
+            </div>
+            <div class="point">📌 <strong>刊载：</strong>湖南日报·湘江评论 2026年4月27日</div>
+            <div class="point">• "智汇潇湘 才聚湖南"2026年行动走进重庆，140多家用人单位、数千个优质岗位</div>
+            <div class="point">• 从袁隆平到张雪，湘渝之间从来不是单向输送，而是你走向我、我走向你，在交错中互相成就</div>
+            <div class="point">• "湘就业"等线上平台还有25.6万个岗位虚位以待</div>
+            <div class="tag">🎯 遴选关联：人才引进+区域协作话题，评论文风是策论文写作的参考范本</div>
+            <a href="https://m.voc.com.cn/xhn/news/202604/32527090.html" target="_blank" class="source-link">
+                🔗 原文链接（湖南日报·新湖南客户端）
+            </a>
+        </div>
+
+        <div class="card hunan" id="card4-8">
+            <div class="card-title">
+                <span class="num">4.8</span>
+                <span>三湘时评丨让更多的"蔡皋"脱颖而出</span>
+            </div>
+            <div class="point">📌 <strong>刊载：</strong>湖南日报·湘江评论 2026年5月7日</div>
+            <div class="point">• 80岁中国绘本画家蔡皋获国际安徒生奖插画家奖，成为60年来首位获此殊荣的中国插画师</div>
+            <div class="point">• 真正的国际化表达，不是削足适履去迎合西方审美，而是坚持文化主体性</div>
+            <div class="point">• 文化从"高原"向"高峰"攀登需要全社会形成尊重艺术创造、包容个性探索的氛围</div>
+            <div class="tag">🎯 遴选关联：文化自信+文化强国话题，"主体性""高原到高峰"是高频表述</div>
+            <a href="https://m.voc.com.cn/xhn/news/202605/32597645.html" target="_blank" class="source-link">
+                🔗 原文链接（湖南日报·新湖南客户端）
+            </a>
+        </div>
+
+        <hr class="divider">
+        <div class="section-title" id="section5" style="background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);">
+            <span class="icon">🌍</span>
+            <span>五、自然资源专题 ⭐</span>
+        </div>
+
+        <div class="card resource" id="card5-1">
+            <div class="card-title">
+                <span class="num">5.1</span>
+                <span>自然资源部：新一轮找矿突破战略行动成果（"十四五"总结）</span>
+            </div>
+            <div class="point">📌 <strong>来源：</strong>自然资源部2026年4月例行新闻发布会</div>
+            <div class="point">• 新发现战略性矿产大中型矿产地398处，油气新增探明储量增长51.7%、44.2%</div>
+            <div class="point">• 稀土、钨、锡、钼等14种矿产储量<strong>居世界第一位</strong></div>
+            <div class="point">• 17种矿产产量<strong>居世界第一</strong>，其中11种占全球50%以上</div>
+            <div class="point">• "十五五"聚焦"增储上产、科技赋能、绿色转型"三项关键任务</div>
+            <div class="tag">⭐ 找矿突破是能源资源安全的重要保障</div>
+            <a href="https://www.mnr.gov.cn/dt/zb/2026/lxxwfbh_4/jb/" target="_blank" class="source-link">
+                🔗 原文链接（自然资源部）
+            </a>
+        </div>
+
+        <div class="card resource" id="card5-2">
+            <div class="card-title">
+                <span class="num">5.2</span>
+                <span>自然资源部：2026年全国汛期地质灾害防治工作视频会议</span>
+            </div>
+            <div class="point">📌 <strong>时间：</strong>2026年4月24日</div>
+            <div class="point">• "十四五"期间地质灾害起数、死亡失踪人数较"十三五"分别减少32%、52%</div>
+            <div class="point">• 成功避险地质灾害2948起，避免5.9万余人因灾伤亡</div>
+            <div class="point">• "十五五"以提升灾害风险防范应对能力为主线，推进"灾害点+风险区"双控管理</div>
+            <div class="tag">⭐ 地灾防治是湖南自然资源工作的重点任务</div>
+            <a href="https://m.mnr.gov.cn/dt/kc/202604/t20260425_2927945.html" target="_blank" class="source-link">
+                🔗 原文链接（自然资源部）
+            </a>
+        </div>
+
+        <div class="card resource" id="card5-3">
+            <div class="card-title">
+                <span class="num">5.3</span>
+                <span>自然资源部 国家林业和草原局：关于进一步做好自然资源要素保障的通知</span>
+            </div>
+            <div class="point">📌 <strong>核心内容：</strong>十三项举措助力"十五五"重点项目</div>
+            <div class="point">• 探索建立健全国土空间规划许可制度</div>
+            <div class="point">• 改进征地工作，成片开发征收土地不再单独编制土地征收成片开发方案</div>
+            <div class="point">• 完善矿业用地政策，露天开采战略性矿产资源可分期分区批准临时用地</div>
+            <div class="point">• 统筹存量和增量建设用地，年度新增城乡建设用地原则上不超过盘活存量土地面积</div>
+            <div class="tag">⭐ 与用户本职工作高度相关！要素保障是自然资源核心职能</div>
+            <a href="https://www.gov.cn/zhengce/zhengceku/202603/content_7063082.htm" target="_blank" class="source-link">
+                🔗 原文链接（国务院政策文件库）
+            </a>
+        </div>
+
+        <div class="card resource" id="card5-4">
+            <div class="card-title">
+                <span class="num">5.4</span>
+                <span>湖南：出台文件推进城市更新（省自然资源厅+省住建厅联合）</span>
+            </div>
+            <div class="point">📌 <strong>四大领域16项举措：</strong></div>
+            <div class="point">• <strong>规划引领：</strong>土地混合开发利用正面清单；微更新免办建设工程规划许可</div>
+            <div class="point">• <strong>土地供应：</strong>存量用地享受<strong>5年过渡期</strong>支持政策</div>
+            <div class="point">• <strong>消防验收：</strong>既有建筑功能转换正负面清单；分类管理</div>
+            <div class="point">• <strong>产权登记：</strong>支持带建筑物一体化收储供应登记</div>
+            <div class="tag">⭐ 城市更新是自然资源部门的核心业务</div>
+            <a href="http://zrzyt.hunan.gov.cn/zrzyt/xxgk/gzdt/zhxw_1/202604/t20260420_33959537.html" target="_blank" class="source-link">
+                🔗 原文链接（湖南省自然资源厅）
+            </a>
+        </div>
+
+        <div class="card resource" id="card5-5">
+            <div class="card-title">
+                <span class="num">5.5</span>
+                <span>湖南：省自然资源厅八项重点任务助力"开局八好"（48条举措）</span>
+            </div>
+            <div class="point">📌 <strong>四个关键词：规划、保供、盘活、守底</strong></div>
+            <div class="point">• <strong>规划：</strong>提升国土空间规划管控水平，支撑"十五五"重大项目</div>
+            <div class="point">• <strong>保供：</strong>推进4345个续建/新建项目用地用林用草并联审查</div>
+            <div class="point">• <strong>盘活：</strong>优化混合用地、弹性年期、差异化地价等供地方式</div>
+            <div class="point">• <strong>守底：</strong>推进5万户切坡建房地质灾害隐患治理，50个县市区落实"隐患点+风险区"双控</div>
+            <div class="tag">⭐ 湖南省自然资源工作的年度主线</div>
+            <a href="http://zrzyt.hunan.gov.cn/zrzyt/xxgk/gzdt/zhxw_1/202604/t20260415_33955047.html" target="_blank" class="source-link">
+                🔗 原文链接（湖南省自然资源厅）
+            </a>
+        </div>
+
+        <div class="card resource" id="card5-6">
+            <div class="card-title">
+                <span class="num">5.6</span>
+                <span>湖南：地质灾害防治成效（近期成功避险案例）</span>
+            </div>
+            <div class="point">📌 <strong>近期成功避险案例：</strong></div>
+            <div class="point">• <strong>益阳桃江县：</strong>严格落实"四包一"责任制，成功避险滑坡</div>
+            <div class="point">• <strong>岳阳平江县：</strong>瓮江镇成功避险一起山体滑坡</div>
+            <div class="point">• <strong>常德桃源县：</strong>西安镇4月25日成功避险滑坡，1户5人提前转移</div>
+            <div class="tag">⭐ 地质灾害防治是湖南自然资源工作的重中之重</div>
+            <a href="http://zrzyt.hunan.gov.cn/zrzyt/xxgk/gzdt/sxxx/202605/t20260506_33970527.html" target="_blank" class="source-link">
+                🔗 原文链接（湖南省自然资源厅）
+            </a>
+        </div>
+
+        <hr class="divider">
+
+        <!-- 六、外省亮点 -->
+        <div class="section-title" id="section6">
+            <span class="icon">🌐</span>
+            <span>六、外省亮点</span>
+        </div>
+
+        <div class="card other" id="card6-1">
+            <div class="card-title">
+                <span class="num">6.1</span>
+                <span>【浙江】推动经济高质量发展若干政策（2026年版）</span>
+            </div>
+            <div class="point">📌 <strong>核心数据：</strong></div>
+            <div class="point">• 安排省级财政资金<strong>1053.8亿元</strong></div>
+            <div class="point">• 为经营主体减负<strong>2500亿元</strong>以上</div>
+            <div class="point">• 省专项基金、新增工业用地支持民间投资项目比重均<strong>不低于80%</strong></div>
+            <div class="tag">💡 借鉴价值：浙江民营经济政策是全国标杆，"80%门槛"体现了对民间投资的真重视</div>
+            <span class="source-link no-link">
+                🔗 原文链接（浙江省人民政府官网首页，无法获取具体政策文件链接）
+            </span>
+        </div>
+
+        <div class="card other" id="card6-2">
+            <div class="card-title">
+                <span class="num">6.2</span>
+                <span>【广东】"十五五"规划纲要正式发布</span>
+            </div>
+            <div class="point">📌 <strong>核心内容：</strong></div>
+            <div class="point">• 全域GDP年均增长<strong>5.0%</strong>左右</div>
+            <div class="point">• 全社会研发经费投入年均增长<strong>5.0%</strong></div>
+            <div class="point">• 县域常住人口城镇化率达<strong>50%</strong>左右</div>
+            <div class="point">• 海洋生产总值达<strong>2.8万亿元</strong>（连续31年全国第一）</div>
+            <div class="tag">💡 借鉴价值：广东"十五五"规划是经济大省的代表性部署，可用于作答区域协调发展题目</div>
+            <a href="http://www.gd.gov.cn/zwgk/wjk/qbwj/yf/content/post_4890249.html" target="_blank" class="source-link">
+                🔗 原文链接（广东省人民政府官网）
+            </a>
+        </div>
+
+        <div class="card other" id="card6-3">
+            <div class="card-title">
+                <span class="num">6.3</span>
+                <span>【广东】2026年全省卫生健康工作会议部署</span>
+            </div>
+            <div class="point">📌 <strong>核心举措：</strong></div>
+            <div class="point">• 深化医药卫生体制改革，强化"三医"协同发展与治理</div>
+            <div class="point">• 推动优质医疗资源扩容均衡布局</div>
+            <div class="point">• 推出"一次挂号管三天"、"检查检验结果互认"等10项便民惠民服务举措</div>
+            <div class="tag">💡 借鉴价值：医改"广东模式"体现了以人民为中心的改革导向</div>
+            <a href="https://wsjkw.gd.gov.cn/zwyw/content/mpost_4852069.html" target="_blank" class="source-link">
+                🔗 原文链接（广东省卫生健康委员会官网）
+            </a>
+        </div>
+
+        <div class="card other" id="card6-4">
+            <div class="card-title">
+                <span class="num">6.4</span>
+                <span>【四川】加大人力资本投资促进经济社会持续健康发展</span>
+            </div>
+            <div class="point">📌 <strong>核心举措（20条）：</strong></div>
+            <div class="point">• 稳岗留工补贴（每人<strong>800元</strong>）</div>
+            <div class="point">• 吸纳失业人员补贴（每人<strong>2000元</strong>）</div>
+            <div class="point">• 新开发<strong>3万个</strong>政策性岗位</div>
+            <div class="tag">💡 借鉴价值：四川"投资于人"的政策力度大、覆盖面广，为湖南稳就业提供借鉴</div>
+            <a href="https://www.sc.gov.cn/10462/10778/10876/2026/2/28/955c675ee99d40f3a829d1e4f625bb67.shtml" target="_blank" class="source-link">
+                🔗 原文链接（四川省人民政府官网）
+            </a>
+        </div>
+
+        <div class="card other" id="card6-5">
+            <div class="card-title">
+                <span class="num">6.5</span>
+                <span>【四川】进一步促进服务业创新突破的实施意见</span>
+            </div>
+            <div class="point">📌 <strong>目标：</strong>到2030年服务业增加值达<strong>5万亿元</strong></div>
+            <div class="point">• 生产性服务业增加值占服务业增加值比重<strong>45%</strong>左右</div>
+            <div class="point">• 服务零售额占全口径消费比重<strong>45%</strong>左右</div>
+            <div class="point">• 初步建成服务型制造创新发展高地</div>
+            <div class="tag">💡 借鉴价值：四川服务业发展的顶层设计逻辑清晰，可作为作答产业转型题目的参考</div>
+            <a href="https://www.sc.gov.cn/10462/10778/10876/2026/2/28/955c675ee99d40f3a829d1e4f625bb67.shtml" target="_blank" class="source-link">
+                🔗 原文链接（四川省人民政府官网）
+            </a>
+        </div>
+
+        <hr class="divider">
+
+        <!-- 七、本期金句积累 -->
+        <div class="section-title" id="section7" style="background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%);">
+            <span class="icon">💜</span>
+            <span>七、本期金句积累</span>
+        </div>
+
+        <div class="card quote">
+            <div class="golden-quote">
+                "基础研究是整个科学体系的源头，是所有技术问题的总机关。"
+            </div>
+            <div class="quote-source">——习近平在加强基础研究座谈会上的讲话（2026年4月30日）</div>
+        </div>
+
+        <div class="card quote">
+            <div class="golden-quote">
+                "时代不同，使命任务发生变化，但艰苦奋斗、团结奋斗、不懈奋斗的精神永远不会变。"
+            </div>
+            <div class="quote-source">——习近平"五一"国际劳动节致辞（2026年5月1日）</div>
+        </div>
+
+        <div class="card quote">
+            <div class="golden-quote">
+                "功成不必在我并不是消极、怠政、不作为，而是要牢固树立正确政绩观，既要做让老百姓看得见、摸得着、得实惠的实事，也要做为后人作铺垫、打基础、利长远的好事。"
+            </div>
+            <div class="quote-source">——习近平2015年在中央党校县委书记研修班座谈会上的讲话</div>
+        </div>
+
+        <div class="card quote">
+            <div class="golden-quote">
+                "树立正确政绩观，要求我们坚持从实际出发、按规律办事，通过科学决策和实干苦干，创造经得起实践和历史检验、真正造福人民、得到群众公认的业绩。"
+            </div>
+            <div class="quote-source">——习近平2026年1月20日在省部级主要研讨班上的讲话</div>
+        </div>
+
+        <div class="card quote">
+            <div class="golden-quote">
+                "干事创业一定要树立正确政绩观，做到'民之所好好之，民之所恶恶之'。"
+            </div>
+            <div class="quote-source">——习近平关于正确政绩观的重要论述</div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- 八、本期重点话题提示 -->
+        <div class="section-title" id="section8" style="background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);">
+            <span class="icon">🔥</span>
+            <span>八、本期重点话题提示</span>
+        </div>
+
+        <div class="hot-topic">
+            <div class="hot-topic-title">
+                <span>🏆</span>
+                <span>话题一：正确政绩观的树立与践行</span>
+            </div>
+            <div class="hot-topic-content">
+                <p><strong>📊 原因分析：</strong></p>
+                <p>• 2026年全党开展树立和践行正确政绩观学习教育</p>
+                <p>• 湖南浏阳烟花厂爆炸事故后，省委明确要求把安全生产作为政绩观学习教育的重要内容</p>
+                <p>• 《求是》2026年第9期全文发表习近平关于政绩观的重要论述</p>
+                <p style="margin-top:12px;"><strong>🎯 可能考法：</strong></p>
+                <p>• <strong>案例分析题：</strong>给定某个地方政府的施政行为，要求分析是否符合正确政绩观</p>
+                <p>• <strong>大作文：</strong>以"政绩观"为核心主题</p>
+            </div>
+        </div>
+
+        <div class="hot-topic">
+            <div class="hot-topic-title">
+                <span>📈</span>
+                <span>话题二：基础研究与中国科技强国建设</span>
+            </div>
+            <div class="hot-topic-content">
+                <p><strong>📊 原因分析：</strong></p>
+                <p>• 习近平总书记4月30日在上海主持召开加强基础研究座谈会</p>
+                <p>• "十五五"规划把科技创新摆在突出位置</p>
+                <p>• 我国基础研究投入占研发投入比重首次突破7%，创新指数升至世界第9位</p>
+                <p style="margin-top:12px;"><strong>🎯 可能考法：</strong></p>
+                <p>• <strong>对策题：</strong>如何加强基础研究、提升原始创新能力</p>
+                <p>• <strong>大作文：</strong>以科技强国建设、新质生产力为主题</p>
+            </div>
+        </div>
+
+        <div class="hot-topic">
+            <div class="hot-topic-title">
+                <span>🌍</span>
+                <span>话题三：自然资源要素保障与服务高质量发展</span>
+            </div>
+            <div class="hot-topic-content">
+                <p><strong>📊 原因分析：</strong></p>
+                <p>• 自然资源部出台十三项要素保障措施助力"十五五"重点项目</p>
+                <p>• 湖南出台48条举措助力"开局八好"，强调"规划、保供、盘活、守底"</p>
+                <p>• 新一轮找矿突破战略行动"十四五"圆满收官，"十五五"接续推进</p>
+                <p style="margin-top:12px;"><strong>🎯 可能考法：</strong></p>
+                <p>• <strong>案例分析题：</strong>给定某地自然资源工作举措，分析其成效与问题</p>
+                <p>• <strong>公文写作：</strong>草拟自然资源要素保障相关文件</p>
+                <p>• <strong>对策题：</strong>如何做好要素保障服务经济发展</p>
+            </div>
+        </div>
+
+        <!-- 参考文献来源 -->
+        <div class="reference">
+            <div class="reference-title">📚 参考文献来源</div>
+            
+            <div class="reference-category">
+                <div class="reference-category-title">中央媒体</div>
+                <div class="reference-item">
+                    <a href="https://www.gov.cn" target="_blank">中国政府网</a>
+                    <div class="reference-articles">• 人民日报社论：在新征程上团结奋斗不懈奋斗<br>• 国家重要政策文件</div>
+                </div>
+                <div class="reference-item">
+                    <a href="https://www.xinhuanet.com" target="_blank">新华社</a>
+                    <div class="reference-articles">• 习近平就服务业发展作出重要指示</div>
+                </div>
+                <div class="reference-item">
+                    <a href="http://cpc.people.com.cn" target="_blank">人民网/中国共产党新闻网</a>
+                    <div class="reference-articles">• 习近平给四所交通大学全体师生回信</div>
+                </div>
+            </div>
+            
+            <div class="reference-category">
+                <div class="reference-category-title">人民日报/求是杂志</div>
+                <div class="reference-item">
+                    <a href="https://www.people.com.cn" target="_blank">人民日报</a>
+                    <div class="reference-articles">• 人民日报社论：在新征程上团结奋斗不懈奋斗<br>• 人民日报评论员：坚定信心，进一步打牢科技强国建设根基</div>
+                </div>
+                <div class="reference-item">
+                    <a href="https://www.qstheory.cn" target="_blank">求是网</a>
+                    <div class="reference-articles">• 郑栅洁：以高质量实施"十五五"规划推进中国式现代化建设<br>• 杜飞轮：提高国民经济循环质量和效率</div>
+                </div>
+                <div class="reference-item">
+                    <a href="http://www.chinapeace.gov.cn" target="_blank">国家安全部/中国长安网</a>
+                    <div class="reference-articles">• 陈一新：提升护航高质量发展的国家安全能力</div>
+                </div>
+            </div>
+            
+            <div class="reference-category">
+                <div class="reference-category-title">国务院政策文件</div>
+                <div class="reference-item">
+                    <a href="https://www.gov.cn/zhengce" target="_blank">国务院政策文件库</a>
+                    <div class="reference-articles">• 国务院关于推进服务业扩能提质的意见<br>• 国务院办公厅关于加快建设分级诊疗体系的若干措施<br>• 国务院办公厅关于健全药品价格形成机制的若干意见<br>• 自然资源部 国家林业和草原局关于进一步做好自然资源要素保障的通知</div>
+                </div>
+            </div>
+            
+            <div class="reference-category">
+                <div class="reference-category-title">自然资源系统</div>
+                <div class="reference-item">
+                    <a href="https://www.mnr.gov.cn" target="_blank">自然资源部</a>
+                    <div class="reference-articles">• 新一轮找矿突破战略行动成果新闻发布会<br>• 2026年全国汛期地质灾害防治工作视频会议</div>
+                </div>
+                <div class="reference-item">
+                    <a href="http://zrzyt.hunan.gov.cn" target="_blank">湖南省自然资源厅</a>
+                    <div class="reference-articles">• 湖南出台文件推进城市更新<br>• 省自然资源厅八项重点任务助力"开局八好"<br>• 树立和践行正确政绩观专题学习<br>• 地质灾害防治成效（益阳桃江、岳阳平江、常德桃源成功避险案例）</div>
+                </div>
+            </div>
+            
+            <div class="reference-category">
+                <div class="reference-category-title">湖南省</div>
+                <div class="reference-item">
+                    <a href="https://www.hunan.gov.cn" target="_blank">湖南省人民政府</a>
+                    <div class="reference-articles">• 沈晓明主持召开省委常委会会议<br>• 安全生产工作部署</div>
+                </div>
+                <div class="reference-item">
+                    <a href="https://rednet.cn" target="_blank">红网/湖南日报</a>
+                    <div class="reference-articles">• 湖南省政府办公厅发布场景创新三年行动方案</div>
+                </div>
+            </div>
+            
+            <div class="reference-category">
+                <div class="reference-category-title">外省政府官网</div>
+                <div class="reference-item">
+                    <a href="https://www.zj.gov.cn" target="_blank">浙江省人民政府</a>
+                    <div class="reference-articles">• 推动经济高质量发展若干政策（2026年版）</div>
+                </div>
+                <div class="reference-item">
+                    <a href="http://www.gd.gov.cn" target="_blank">广东省人民政府</a>
+                    <div class="reference-articles">• "十五五"规划纲要正式发布</div>
+                </div>
+                <div class="reference-item">
+                    <a href="https://wsjkw.gd.gov.cn" target="_blank">广东省卫生健康委员会</a>
+                    <div class="reference-articles">• 2026年全省卫生健康工作会议</div>
+                </div>
+                <div class="reference-item">
+                    <a href="https://www.sc.gov.cn" target="_blank">四川省人民政府</a>
+                    <div class="reference-articles">• 加大人力资本投资促进经济社会持续健康发展<br>• 进一步促进服务业创新突破的实施意见</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 温馨提示 -->
+        <div class="notice">
+            <div class="notice-title">
+                <span>📌</span>
+                <span>温馨提示</span>
+            </div>
+            <p>本期简报严格按新规范制作，聚焦国家重要讲话、重要政策、人民日报/求是杂志、湖南省动态、自然资源专题、外省亮点、金句积累、重点话题提示八大板块。所有链接均来自官方来源。</p>
+            <p style="margin-top:10px;">📅 内容覆盖：2026年4月下旬至5月上旬</p>
+        </div>
+    </div>
+    
+    <script>
+    document.querySelectorAll('.toc a[href^="#"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('href').substring(1);
+            var target = document.getElementById(targetId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    </script>
+</body>
+</html>
